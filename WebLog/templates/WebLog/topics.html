@@ -1,0 +1,26 @@
+{% extends "WebLog/base.html" %}
+
+{% block page_header %}
+      <h1>Topics</h1>
+{% endblock page_header %}
+
+
+{% block content %}
+
+
+  <p>Topics</p>
+
+  <ul>
+    {% for topic in topics %}
+      <li><h3>
+        <a href="{% url 'WebLog:topic' topic.id %}"> {{ topic }} </a>
+      </h3></li>
+    {% empty %}
+      <li><h3>No topics added yet</h3></li>
+    {% endfor %}
+
+  </ul>
+
+  <h3><a href="{% url 'WebLog:new_topic' %}">Add new topic</a></h3>
+
+{% endblock content %}
